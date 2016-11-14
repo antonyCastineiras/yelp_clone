@@ -3,6 +3,10 @@ class RestaurantsController < ApplicationController
 		@restaurants = Restaurant.all
 	end
 
+  def show
+		@restaurant = Restaurant.find(params[:id])
+  end
+
 	def new
 		@restaurant = Restaurant.new
 	end
@@ -15,4 +19,5 @@ class RestaurantsController < ApplicationController
 	def restaurant_params
 		params.require(:restaurant).permit(:name)
 	end
+	
 end
