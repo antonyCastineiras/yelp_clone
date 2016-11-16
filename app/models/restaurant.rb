@@ -4,10 +4,7 @@ class Restaurant < ApplicationRecord
 
   def build_review(attributes = {}, user)
     review = reviews.build(attributes)
-    review.user = user
+    review.user_id = user.id
     review
   end
-
-
-
 end

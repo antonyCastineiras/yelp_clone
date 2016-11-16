@@ -10,10 +10,10 @@ class ReviewsController < ApplicationController
     @review = @restaurant.build_review review_params, current_user
 
     if @review.save
-      redirect_to restaurant_path
+      redirect_to restaurants_path
     else
       if @review.errors[:user]
-        redirect_to restaurant_path, alert: 'You have already reviewed this restaurant'
+        redirect_to restaurants_path, alert: 'You have already reviewed this restaurant'
       else
         render :new
       end
@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:thoughts, :rating)
+    params.require(:review).permit(:thoughts, :rating, :resturant_id, :user_id)
   end
 
 end
