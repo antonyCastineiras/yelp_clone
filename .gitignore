@@ -13,8 +13,9 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore Secrets
-./config/secrets.yml
-
 # Ignore Byebug command history file.
 .byebug_history
+
+# Don't check in credentials
+config/env.yml
+config/secrets.yml
